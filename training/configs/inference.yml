@@ -1,0 +1,28 @@
+{
+  ### Environment Parameters
+  debug: false,
+  mode: inference,
+  cuda: true,
+  pin_memory: false,
+  worker: 2,
+  CUDA_VISIBLE_DEVICES: '0',
+
+  ### Train Parameters
+  model_name: '', # This parameter is automatically set by inference_all.py
+    n_classes: 1,
+    in_channels: 3,
+  inference_mode: 'segmentation',
+  task: 'segmentation',
+  dataloader: 'Image2Image_zero_pad', 
+  criterion: 'DiceBCE',
+  # RGBfG for VessMAP, DCA1 and OCTA since they are grayscale and need to be converted to RGB
+  input_space: 'RGB',  
+  input_channel: 3,
+  # Need to be the next multiple of 32 from the original image resolution [h, w]
+  # DRIVE:608, STARE:704, CHASE_DB1:1024, HRF:1344, DCA1: 320, OCTA: 416, VessMAP: 256
+  input_size: [1344, 1344],  
+
+  model_path: '../data/models/HRF',
+  val_x_path: '../data/HRF/val/input',
+  val_y_path: '../data/HRF/val/label',
+}
