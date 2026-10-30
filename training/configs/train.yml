@@ -7,7 +7,7 @@
   worker: 8,
   log_interval: 9999,
   save_interval: 1,
-  saved_model_directory: '../data/models/HRF',
+  saved_model_directory: '../data/models/DRIVE',
   train_fold: 1,
   project_name: 'vessel_benchmark',
   CUDA_VISIBLE_DEVICES: '0',
@@ -23,8 +23,8 @@
   input_space: 'RGB',
   input_channel: 3,
   # Need to be the next multiple of 32 from the original image resolution [h, w]
-  # DRIVE:608, STARE:704, CHASE_DB1:1024, HRF:1344, DCA1: 320, OCTA: 416, VessMAP: 256
-  input_size: [1344, 1344],  
+  # DRIVE:608, STARE:704, CHASE_DB1:1024, HRF:(3504,2336), DCA1: 320, OCTA: 416, VessMAP: 256
+  input_size: [608, 608],  
   optimizer: 'AdamW',
     lr: 0.001,
     scheduler: 'WarmupCosine',  
@@ -47,8 +47,8 @@
   transform_rand_resize: true, 
   transform_rand_crop: 288, 
 
-  train_x_path: '../data/HRF/train/input',
-  train_y_path: '../data/HRF/train/label',
-  val_x_path: '../data/HRF/val/input',
-  val_y_path: '../data/HRF/val/label',
+  train_x_path: '../data/DRIVE/train/input',
+  train_y_path: '../data/DRIVE/train/label',
+  val_x_path: '../data/DRIVE/val/input',
+  val_y_path: '../data/DRIVE/val/label',
 }
